@@ -1,0 +1,6 @@
+//- require "./Basics/Tuple.fs"
+//- require "./Platform/Effect.fs"
+//- require "./Platform/IO.fs"
+//- require "./Platform/Reducer.fs"
+//- require "./Platform/TryIO.fs"
+//- require "./Platform/Worker.fs"

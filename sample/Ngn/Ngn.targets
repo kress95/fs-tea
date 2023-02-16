@@ -1,0 +1,17 @@
+<Project>
+  <ItemGroup>
+    <Compile Include="Platform/Eff/EachTick.fs"/>
+    <Compile Include="Platform/Effects.fs"/>
+    <Compile Include="Platform/Sub.fsi"/>
+    <Compile Include="Platform/Sub.fs"/>
+    <Compile Include="Events.fsi"/>
+    <Compile Include="Events.fs"/>
+    <Compile Include="Platform/Cmd.fsi"/>
+    <Compile Include="Platform/Cmd.fs"/>
+    <Compile Include="Platform/Loader.fs"/>
+    <Compile Include="Platform/Worker.fs"/>
+    <Compile Include="Platform/Runtime.fs"/>
+    <Compile Include="Platform/Game.fsi"/>
+    <Compile Include="Platform/Game.fs"/>
+  </ItemGroup>
+</Project>

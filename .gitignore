@@ -1,0 +1,5 @@
+.direnv
+src/obj/
+src/bin/
+sample/*/obj/
+sample/*/bin/
