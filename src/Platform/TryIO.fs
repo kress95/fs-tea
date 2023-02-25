@@ -1,4 +1,4 @@
-//- require "./TryIO.fsi"
+// @after ./TryIO.fsi
 
 namespace rec Tea.Platform
 

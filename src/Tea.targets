@@ -1,3 +1,1 @@
-<Project>
-  <ItemGroup><Compile Include="Basics/Tuple.fsi;Basics/Tuple.fs;Platform/IO.fsi;Platform/IO.fs;Platform/Router.fsi;Platform/Router.fs;Platform/Effect.fsi;Platform/Effect.fs;Platform/Reducer.fsi;Platform/Reducer.fs;Platform/TryIO.fsi;Platform/TryIO.fs;Platform/Worker.fsi;Platform/Worker.fs"/></ItemGroup>
-</Project>
+<Project><ItemGroup><Compile Include="Platform/IO.fsi;Platform/IO.fs;Platform/Router.fsi;Platform/Router.fs;Platform/Effect.fsi;Platform/Effect.fs;Platform/Reducer.fsi;Platform/Reducer.fs;Platform/TryIO.fsi;Platform/TryIO.fs;Platform/Worker.fsi;Platform/Worker.fs"/></ItemGroup></Project>

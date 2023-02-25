@@ -1,15 +1,13 @@
-//- require "./IO.fs"
-//- require "./Router.fsi"
+// @after ./IO.fs
+// @after ./Router.fsi
 
 namespace rec Tea.Platform
 
 [<Struct>]
-type Router<'appMsg, 'selfMsg> =
-  internal
-    {
-      Dispatch: 'appMsg -> unit
-      Loopback: 'selfMsg -> unit
-    }
+type Router<'appMsg, 'selfMsg> = internal {
+  Dispatch: 'appMsg -> unit
+  Loopback: 'selfMsg -> unit
+}
 
 module Router =
 

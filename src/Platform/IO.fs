@@ -1,4 +1,4 @@
-//- require "./IO.fsi"
+// @after ./IO.fsi
 
 namespace rec Tea.Platform
 

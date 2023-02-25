@@ -1,40 +1,37 @@
-//- require "./IO.fs"
-//- require "./Router.fs"
-//- require "./Effect.fsi"
+// @after ./IO.fs
+// @after ./Router.fs
+// @after ./Router.fs
+// @after ./Effect.fsi
 
 namespace rec Tea.Platform
 
-type Effect<'state, 'appMsg, 'selfMsg, 'eff> =
-  {
-    Init: unit -> IO<'state>
-    OnUpdate: Router<'appMsg, 'selfMsg> -> 'selfMsg -> 'state -> IO<'state>
-    OnEffect: Router<'appMsg, 'selfMsg> -> List<'eff> -> 'state -> IO<'state>
-  }
+type Effect<'state, 'appMsg, 'selfMsg, 'eff> = {
+  Init: unit -> IO<'state>
+  OnUpdate: Router<'appMsg, 'selfMsg> -> 'selfMsg -> 'state -> IO<'state>
+  OnEffect: Router<'appMsg, 'selfMsg> -> List<'eff> -> 'state -> IO<'state>
+}
 
 [<RequireQualifiedAccess>]
 module Effect =
 
   open System.Collections
 
-  type Program<'state, 'appMsg, 'selfMsg, 'eff> =
-    internal
-      {
-        mutable State: IO<'state>
-        OnUpdate: 'selfMsg -> 'state -> IO<'state>
-        OnEffect: List<'eff> -> 'state -> IO<'state>
-        Mailbox: Generic.Queue<'selfMsg>
-        OutMailbox: Generic.Queue<'appMsg>
-      }
+  type Program<'state, 'appMsg, 'selfMsg, 'eff> = internal {
+    mutable State: IO<'state>
+    OnUpdate: 'selfMsg -> 'state -> IO<'state>
+    OnEffect: List<'eff> -> 'state -> IO<'state>
+    Mailbox: Generic.Queue<'selfMsg>
+    OutMailbox: Generic.Queue<'appMsg>
+  }
 
   let init manager =
     let mailbox = Generic.Queue()
     let outMailbox = Generic.Queue()
 
-    let router: Router<'appMsg, 'selfMsg> =
-      {
-        Loopback = mailbox.Enqueue
-        Dispatch = outMailbox.Enqueue
-      }
+    let router: Router<'appMsg, 'selfMsg> = {
+      Loopback = mailbox.Enqueue
+      Dispatch = outMailbox.Enqueue
+    }
 
     {
       State = manager.Init()
